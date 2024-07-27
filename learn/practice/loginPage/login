@@ -1,0 +1,44 @@
+step 1 - form create 
+step 2 - class create and connection fun and logindata fun 
+    public function loginData($tableName , $postData = []){
+        if(isset($postData['login'])){
+            $email = (!empty($postData['email']) ? $postData['email'] : '');
+            $password = (!empty($postData['password']) ? $postData['password'] : '');
+
+
+            //email check
+
+            $query = "SELECT * FROM $tableName WHERE email = '$email'";
+            // var_dump($query);
+            $result = $this->connection->query($query);
+            // var_dump($result);
+            if($result) {
+                if ($result->num_rows > 0) {
+                    // echo 'email already exist<br>';
+                    $recordDetails = mysqli_fetch_all($result ,MYSQLI_ASSOC );
+                    if($recordDetails[0]['password'] == $password){
+                        $_SESSION['user_id'] = $recordDetails[0]['id'];
+                        // var_dump($_SESSION);die;
+                            header('location:list.php');
+                    }else{
+                        echo 'password incorrect<br><br>';
+                    }        
+                }else{
+                    echo 'email not exist<br><br>';
+                }
+            }
+    }   }
+
+step 3 -  then function call in form page -
+
+    if(isset($_POST['login']) && $_POST['login']  == 'login'){
+    $obj->loginData('login_master' , $_POST);
+}
+
+step 4 - listing page create -
+include 'loginPage.php';
+include_once('connection.php');
+if(isset($_SESSION['user_id']) && $_SESSION['user_id'] > 0){
+     header('location:list.php');
+}
+

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>result</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   
+    <style>
+        body{
+            /* background-color: blue; */
+            background-image: url('43276.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        fieldset{
+            height:300px;
+            width:300px;
+            margin:50px 35%;
+            padding-left:10px;
+            background-color: lightblue;
+            border-radius: 20px;
+           
+        }
+
+        @media only screen and (max-width: 600px) {
+            fieldset{
+            height:300px;
+            width:300px;
+            margin:50px 50px;
+            padding-left:10px;
+            background-color: lightblue;
+            border-radius: 20px;
+        }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">Silver Oak University</a>
+          </div>
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <form action="marksheet_form.php" method="post">
+        <fieldset>
+            <h2>Marksheet B.Tech (CE) 2023</h2>
+            <label for="enroll">Enrollement:</label>
+            <input type="text" name='enrollement_no' id='enroll' placeholder='enter enrollement'> <br><br>
+            <label for="semester">semester</label>
+            <select name="semester" id='semester' >
+                <option value="select">select</option>
+                <option value="sem-1">sem-1</option>
+                <option value="sem-2">sem-2</option>
+                <option value="sem-3">sem-3</option>
+                <option value="sem-4">sem-4</option>
+                <option value="sem-5">sem-5</option>
+            </select><br><br>
+            <button name='submit'>submit</button>
+        </fieldset>
+    </form>
+</body>
+</html>
